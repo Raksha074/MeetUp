@@ -101,7 +101,7 @@ You need to set up environment variables for both the client and server.
 1. Client (client/.env):
 
 VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-VITE_BACKEND_URL=http://localhost:5000
+VITE_BACKEND_URL=http://localhost:3000
 
 
 2. Server (server/.env):
