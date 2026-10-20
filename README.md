@@ -1,92 +1,137 @@
 🎥 Meetup - Real-Time Video Conferencing Application
 
-Meetup is a full-stack, real-time video conferencing web application built with WebRTC, React, Node.js, and Socket.io. It allows users to seamlessly create, join, and manage high-quality video meetings with built-in real-time chat functionality.
+🚀 About the Project
 
-✨ Features
+Meetup is a seamless, real-time video communication platform designed to connect people instantly. Whether it's a 1-on-1 meeting or a group conference, Meetup handles peer-to-peer WebRTC connections with low latency. It includes built-in live chat, host controls, and a persistent PostgreSQL database for meeting history.
 
-🔐 Secure Authentication: User sign-up and login powered by Clerk. (Supports Google OAuth and Email/Password).
+✨ Key Features
 
-📹 Real-Time Video & Audio: Peer-to-peer fast and secure video communication using WebRTC.
+Secure Authentication: Passwordless & OAuth login powered by Clerk.
 
-💬 In-Meeting Chat: Real-time messaging system within the meeting room using Socket.io.
+WebRTC Video/Audio: Crystal clear, low-latency peer-to-peer media streaming.
 
-👑 Host Controls: Meeting hosts can end the meeting for all participants.
+Live Text Chat: In-room real-time messaging using Socket.io.
 
-📊 Plan-Based Limits: Enforced participant limits based on user subscription tiers (e.g., 10 users for Free plan, 100 for Premium plan).
+Host Controls: Meeting hosts can end the call for everyone and manage participants.
 
-🗄️ Persistent Chat & History: Meeting details and chat history are saved in a Serverless PostgreSQL database (Neon DB).
+Tiered Access: Participant limits enforced dynamically (Free vs. Premium plans).
 
-🎨 Responsive UI: Modern and clean user interface built with Tailwind CSS.
+Modern UI: Fully responsive, accessible, and beautifully designed with Tailwind CSS.
+
+💻 Tech Stack
+
+###Frontend
+
+Framework: React.js (Vite)
+
+Styling: Tailwind CSS
+
+Icons: Lucide React
+
+Routing: React Router DOM
+
+Authentication: Clerk
+
+###Backend & Database
+
+Runtime: Node.js
+
+Framework: Express.js
+
+Real-time Engine: Socket.io
+
+Database: PostgreSQL (Neon Serverless DB)
+
+📁 Folder Structure
+
+meetup/
+├── client/                 # Frontend React application
+│   ├── src/
+│   │   ├── assets/         # Images, icons, etc.
+│   │   ├── components/     # Reusable UI components
+│   │   ├── config/         # API and Socket configurations
+│   │   ├── hooks/          # Custom React hooks (useWebRTC, useChat)
+│   │   └── App.jsx         # Main application routing
+│   └── package.json
+│
+└── server/                 # Backend Express application
+    ├── config/             # Database connection (db.js)
+    ├── controllers/        # Route controllers
+    ├── socket.js           # Socket.io signaling and chat logic
+    ├── server.js            # Express server entry point
+    └── package.json
 
 
-🛠️ Tech Stack
+🛠️ Getting Started
 
-Frontend:
-
-React (Vite)
-
-Tailwind CSS
-
-Lucide React (Icons)
-
-Clerk (Authentication)
-
-React Router DOM
-
-Backend:
-
-Node.js & Express.js
-
-Socket.io (Signaling for WebRTC & Chat)
-
-PostgreSQL (Neon Serverless DB)
-
-🚀 Getting Started
+Follow these instructions to set up the project locally on your machine.
 
 Prerequisites
 
-Make sure you have Node.js and npm installed on your machine. You will also need accounts on Clerk and Neon DB to get your API keys.
+Node.js (v16 or higher)
 
-1. Clone the repository
+npm or yarn
+
+Accounts on Clerk (Auth) and Neon (Database)
+
+Installation
+
+Clone the repository:
 
 git clone https://github.com/your-username/meetup.git
 cd meetup
 
 
-2. Setup the Backend
+Install Backend Dependencies:
 
 cd server
 npm install
 
 
-Create a .env file in the server directory and add your Neon Database string:
+Install Frontend Dependencies:
 
-DATABASE_URL=your_neon_postgres_connection_string
-
-
-Start the backend server:
-
-npm start
-# or node index.js
-
-
-3. Setup the Frontend
-
-Open a new terminal and navigate to the frontend folder:
-
-cd client
+cd ../client
 npm install
 
 
-Create a .env file in the client directory:
+Environment Variables
+
+You need to set up environment variables for both the client and server.
+
+1. Client (client/.env):
 
 VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
-VITE_BACKEND_URL=http://localhost:5000 # Replace with your backend port
+VITE_BACKEND_URL=http://localhost:5000
 
 
-Start the frontend development server:
+2. Server (server/.env):
 
+PORT=5000
+DATABASE_URL=your_neon_postgresql_connection_string
+
+
+Running the App Locally
+
+Start the backend server:
+
+cd server
+npm start
+
+
+Start the frontend application:
+
+cd client
 npm run dev
 
+
+Your app should now be running on http://localhost:5173.
+
+🌍 Deployment
+
+Frontend: Highly recommended to deploy on Vercel. Simply connect your GitHub repository and add the VITE_* environment variables.
+
+Backend: Can be deployed on Render or Railway. Make sure to set the Node environment to production and add the DATABASE_URL.
+
+Database: The database is already hosted on Neon DB (Serverless PostgreSQL).
 
 Built with ❤️ by Raksha for seamless global communication.
